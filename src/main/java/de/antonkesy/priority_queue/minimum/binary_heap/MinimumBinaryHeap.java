@@ -97,7 +97,7 @@ public class MinimumBinaryHeap<T> implements MinimumCollection<T> {
     @Override
     public int indexOf(Key key) {
         for (int i = 0; i < size; ++i)
-            if (elements.get(0).key.equals(key)) return i;
+            if (elements.get(i).key.equals(key)) return i;
 
         return -1;
     }

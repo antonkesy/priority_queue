@@ -92,7 +92,7 @@ class MinimumBinaryHeapTest {
     void invalid_decreaseKey() {
         MinimumCollection<Integer> testHeap = new MinimumBinaryHeap<>(TEST_CAPACITY);
 
-        testHeap.push(new IntegerKey(0), 1);
+        testHeap.push(new IntegerKey(1), 1);
         testHeap.decreaseKey(0, new IntegerKey(0));
 
         assertThrows(IllegalArgumentException.class, () -> {
@@ -106,5 +106,9 @@ class MinimumBinaryHeapTest {
 
         testHeap.push(new IntegerKey(0), 0);
         assertEquals(0, testHeap.indexOf(new IntegerKey(0)));
+
+        testHeap.push(new IntegerKey(-1), 0);
+        assertEquals(1, testHeap.indexOf(new IntegerKey(0)));
+        assertEquals(0, testHeap.indexOf(new IntegerKey(-1)));
     }
 }
